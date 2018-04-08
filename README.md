@@ -2,7 +2,7 @@
 
 <p align="center">
 <br>
-Project M.A.R.S. is an arcade racing game located on Mars Surface in the near future, where humanity has reached the red planet and colonization is beginning. Driving of racing cars built with the new "Martian Advanced Racing System" technology, it will be necessary to complete some transport missions, research and exploration.<br><br>
+Project M.A.R.S. is an arcade racing game set on the surface of Mars in the near future, when humanity has reached the red planet and is beginning its colonization. The player will need to complete missions concerning transport, research and exploration, all while driving racing cars built with the new "Martian Advandced Racing System".<br><br>
 <img src="http://pellix1206.altervista.org/Images/ProjectMars/Immagine2.jpg" />
 <br><br>
 </p>
@@ -10,7 +10,8 @@ Project M.A.R.S. is an arcade racing game located on Mars Surface in the near fu
 # Technologies and Core Algorithms
 
 <p align="center">
-The project is made with Unity 2017, and the source code is written in C# language. Among the main functions of the game, manually set by the team programmers, we have the management of physics on the Martian territory (reduced gravity, dynamic vehicle adhesion based on the type of surface), the dynamic management of the vehicle assembly in the dedicated garage, and the entire camera system.<br><br>
+The project is made with Unity 2017, and the source code is written in C#. Among the main features of the game we count the physics management (Martian reduced gravity, dynamic vehicle adherence depending on different types of surface), the dynamic management of the vehicle assembly in the dedicated garage, and the entire camera system.<br>
+All these feature were manually coded by the game programmers in the team.<br><br>
 <img src="http://pellix1206.altervista.org/Images/ProjectMars/Immagine3.jpg" />
 <img src="http://pellix1206.altervista.org/Images/ProjectMars/untitled2.jpg" />
 <br><br>
