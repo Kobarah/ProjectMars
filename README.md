@@ -1,7 +1,6 @@
 # Project M.A.R.S.
 
 <p align="center">
-<br>
 Project M.A.R.S. is an arcade racing game set on the surface of Mars in the near future, when humanity has reached the red planet and is beginning its colonization. The player will need to complete missions concerning transport, research and exploration, all while driving racing cars built with the new "Martian Advandced Racing System".<br><br>
 <img src="http://pellix1206.altervista.org/Images/ProjectMars/Immagine2.jpg" />
 <br><br>
