@@ -11,7 +11,7 @@ Project M.A.R.S. is an arcade racing game set on the surface of Mars in the near
 <p align="center">
 The project is made with Unity 2017, and the source code is written in C#. Among the main features of the game we count the physics management (Martian reduced gravity, dynamic vehicle adherence depending on different types of surface), the dynamic management of the vehicle assembly in the dedicated garage, and the entire camera system.<br>
 All these feature were manually coded by the game programmers in the team.<br><br>
-<img src="http://pellix1206.altervista.org/Images/ProjectMars/Immagine3.jpg" />
+<img src="http://pellix1206.altervista.org/Images/ProjectMars/Immagine31.jpg" />
 <img src="http://pellix1206.altervista.org/Images/ProjectMars/untitled2.jpg" />
 <br><br>
 </p>
