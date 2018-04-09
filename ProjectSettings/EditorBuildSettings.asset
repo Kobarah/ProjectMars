@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu/MenuIniziale.unity
+    path: Assets/MenuIniziale.unity
     guid: 1d3f34c80c24abf40a2f257177fd08f0
   - enabled: 0
     path: Assets/Scenes/Menu/SchermataLogo.unity
@@ -81,7 +81,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Mappe/OlympusMonsMission6.unity
     guid: 9969fd4e2f27e3f40af4771f75e60eaf
   - enabled: 1
-    path: Assets/Scenes/Mappe/OlympusMonsFreeRoaming.unity
+    path: Assets/Scenes/Mappe/OlympusMonsMission7.unity
     guid: 6f77faad0d8f1e84982db001c1a1b005
   - enabled: 1
     path: Assets/Scenes/Mappe/VallesMarinerisMission1.unity

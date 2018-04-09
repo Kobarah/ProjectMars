@@ -750,62 +750,35 @@ public class NewVehicleController : MonoBehaviour
 
     void Steering(WheelInfo wheelInfo)
     {
-        if (chosenWheel != TypeOfWheel.Caterpillar)
-        {
-            float steering = (steeringAngle - (currentSpeed / 8)) * Input.GetAxis(horizontalInput);
+        float steering = (steeringAngle - (currentSpeed / 8)) * Input.GetAxis(horizontalInput);
 
-            if (chosenWheel == TypeOfWheel.Sphere)
+        if (chosenWheel == TypeOfWheel.Sphere || chosenWheel == TypeOfWheel.Drone || chosenWheel == TypeOfWheel.Propeller)
+        {
+            if (Input.GetAxis(sphereR) > 0)
             {
-                if (!Input.GetButton(sphereL) && !Input.GetButton(sphereR))
-                {
-                    if (Input.GetAxis(verticalInput) >= 0.9f && Input.GetAxis(horizontalInput) >= 0.9f)
-                    {
-                        steering = 45;
-                    }
-                    else if (Input.GetAxis(verticalInput) == 0 && Input.GetAxis(horizontalInput) >= 0.9f)
-                    {
-                        steering = 90;
-                    }
-                    else if (Input.GetAxis(verticalInput) <= -0.9f && Input.GetAxis(horizontalInput) >= 0.9f)
-                    {
-                        steering = 135;
-                    }
-                    else if (Input.GetAxis(verticalInput) <= -0.9f && Input.GetAxis(horizontalInput) <= -0.9f)
-                    {
-                        steering = -135;
-                    }
-                    else if (Input.GetAxis(verticalInput) == 0 && Input.GetAxis(horizontalInput) <= -0.9f)
-                    {
-                        steering = -90;
-                    }
-                    else if (Input.GetAxis(verticalInput) >= 0.9f && Input.GetAxis(horizontalInput) <= -0.9f)
-                    {
-                        steering = -45;
-                    }
-                }
-                else
-                {
-                    if (wheelInfo.steering)
-                    {
-                        if (Input.GetAxis(sphereL) > 0)
-                        {
-                            steering = -steeringAngle;
-                        }
-                        else if (Input.GetAxis(sphereR) > 0)
-                        {
-                            steering = steeringAngle;
-                        }
-                    }
-                }
+                steering = 90;
+            }
+            else if (Input.GetAxis(sphereL) > 0)
+            {
+                steering = -90;
+            }
+        }
+
+        if (Mathf.Abs(steering) == 90)
+        {
+            wheelInfo.wheelCollider.steerAngle = steering;
+        }
+        else
+        {
+            if (wheelInfo.steering)
+            {
                 wheelInfo.wheelCollider.steerAngle = steering;
             }
             else
             {
-                if (wheelInfo.steering)
-                {
-                    wheelInfo.wheelCollider.steerAngle = steering;
-                }
+                wheelInfo.wheelCollider.steerAngle = 0;
             }
+
         }
     }
 

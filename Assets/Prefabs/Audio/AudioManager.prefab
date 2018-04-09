@@ -1151,11 +1151,18 @@ MonoBehaviour:
     from2dTO3d: 0
     loop: 1
     distance: 750
-  weightMod:
+  weightModON:
     audioFile: {fileID: 8300000, guid: 9bfe3f1bee87b0a428c22992cb0e0991, type: 3}
-    volume: 0.12
-    pitch: 0.692
-    from2dTO3d: 1
+    volume: 1
+    pitch: 1
+    from2dTO3d: 0
+    loop: 1
+    distance: 750
+  weightModOFF:
+    audioFile: {fileID: 8300000, guid: 634097393a72259409cf386437951538, type: 3}
+    volume: 1
+    pitch: 1
+    from2dTO3d: 0
     loop: 1
     distance: 750
   turbo:
@@ -1212,6 +1219,13 @@ MonoBehaviour:
     volume: 0.136
     pitch: 1.609
     from2dTO3d: 1
+    loop: 1
+    distance: 750
+  helicopterON:
+    audioFile: {fileID: 8300000, guid: ce2c20326fe0db6419bb78db084d79f7, type: 3}
+    volume: 1
+    pitch: 1
+    from2dTO3d: 0
     loop: 1
     distance: 750
   vehicleResistenceAir:
@@ -1294,9 +1308,23 @@ MonoBehaviour:
     from2dTO3d: 0
     loop: 1
     distance: 750
+  refillFuel:
+    audioFile: {fileID: 0}
+    volume: 1
+    pitch: 1
+    from2dTO3d: 0
+    loop: 1
+    distance: 750
+  collectPoint:
+    audioFile: {fileID: 0}
+    volume: 1
+    pitch: 1
+    from2dTO3d: 0
+    loop: 1
+    distance: 750
   changeSelection:
-    audioFile: {fileID: 8300000, guid: 3074a6d7be7a1a346a10723998861682, type: 3}
-    volume: 0.143
+    audioFile: {fileID: 8300000, guid: b274731abbfab2d47af1c67b04cf7481, type: 3}
+    volume: 0.1
     pitch: 0.857
     from2dTO3d: 0
     loop: 1
@@ -1329,6 +1357,13 @@ MonoBehaviour:
     from2dTO3d: 0
     loop: 1
     distance: 750
+  menuGarageSwitch:
+    audioFile: {fileID: 0}
+    volume: 1
+    pitch: 1
+    from2dTO3d: 0
+    loop: 1
+    distance: 750
   accessoryAlreadySelectedAlert:
     audioFile: {fileID: 8300000, guid: cd3dab0f330c72548b3f26a9ecb94b18, type: 3}
     volume: 1
@@ -1338,19 +1373,19 @@ MonoBehaviour:
     distance: 750
   musicArray:
   - audioFile: {fileID: 8300000, guid: 6773e66a39cb1d247ba7f07349d9d868, type: 3}
-    volume: 0
+    volume: 0.2
     pitch: 1
     from2dTO3d: 0
     loop: 0
     distance: 0
   - audioFile: {fileID: 8300000, guid: d44e60c0d946cac43bad54f662bd3f1e, type: 3}
-    volume: 0
+    volume: 0.2
     pitch: 1
     from2dTO3d: 0
     loop: 0
     distance: 0
   - audioFile: {fileID: 8300000, guid: 56068367e26ec4d40a1e720b5603ad40, type: 3}
-    volume: 0
+    volume: 0.2
     pitch: 1
     from2dTO3d: 0
     loop: 0

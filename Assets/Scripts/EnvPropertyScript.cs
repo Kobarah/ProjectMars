@@ -167,39 +167,45 @@ public class EnvPropertyScript : MonoBehaviour
 
     private IEnumerator AddRadiation()
     {
-        while (onRadiation && !NewVehicleController.vehicleController.isShielded)
+        while (onRadiation)
         {
-            Color newAlpha = Color.white;
-
-            for (int i = 0; i < HUDList.HUDImages.Count; i++)
+            if (!NewVehicleController.vehicleController.isShielded)
             {
-                newAlpha = HUDList.HUDImages[i].color;
+                Color newAlpha = Color.white;
+
+                for (int i = 0; i < HUDList.HUDImages.Count; i++)
+                {
+                    newAlpha = HUDList.HUDImages[i].color;
+                    newAlpha.a = Random.Range(0, 0.1f);
+                    HUDList.HUDImages[i].color = newAlpha;
+
+                }
+
+                for (int i = 0; i < HUDList.HUDTexts.Count; i++)
+                {
+                    newAlpha = HUDList.HUDTexts[i].color;
+                    newAlpha.a = Random.Range(0, 0.1f);
+                    HUDList.HUDTexts[i].color = newAlpha;
+                }
+
+                newAlpha = HUDList.miniMap.color;
                 newAlpha.a = Random.Range(0, 0.1f);
-                HUDList.HUDImages[i].color = newAlpha;
+                HUDList.miniMap.color = newAlpha;
 
+                newAlpha.b = Random.Range(0, 1f);
+                newAlpha.r = Random.Range(0, 1f);
+                newAlpha.g = Random.Range(0, 1f);
+
+                HUDList.disturb.color = newAlpha;
             }
-
-            for (int i = 0; i < HUDList.HUDTexts.Count; i++)
+            else
             {
-                newAlpha = HUDList.HUDTexts[i].color;
-                newAlpha.a = Random.Range(0, 0.1f);
-                HUDList.HUDTexts[i].color = newAlpha;
+                StopRadiation();
             }
-
-            newAlpha = HUDList.miniMap.color;
-            newAlpha.a = Random.Range(0, 0.1f);
-            HUDList.miniMap.color = newAlpha;
-
-            newAlpha.b = Random.Range(0, 1f);
-            newAlpha.r = Random.Range(0, 1f);
-            newAlpha.g = Random.Range(0, 1f);
-
-            HUDList.disturb.color = newAlpha;
 
             yield return new WaitForSeconds(0.05f);
         }
 
-        StopRadiation();
         yield return null;
     }
 

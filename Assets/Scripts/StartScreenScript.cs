@@ -20,6 +20,7 @@ public class StartScreenScript : MonoBehaviour
     {
         defaultColor = textButtons[0].color;
         ChangeTextsColor();
+        Cursor.visible = false;
     }
     
     void Update()

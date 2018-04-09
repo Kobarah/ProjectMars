@@ -109,6 +109,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private SoundSettingsSemplified[] musicArray;
     float currentMusicMinVolume = 0;
     float currentMusicMinPitch = 0;
+    private int musicIndex = 0;
+    bool isSwitchInUse = false;
 
 
     void Start()
@@ -142,9 +144,24 @@ public class AudioManager : MonoBehaviour
 
     void Update()
     {
-        if (!musicSource.isPlaying)
+        if (SceneManager.GetActiveScene().name.Contains("Mission") || SceneManager.GetActiveScene().name.Contains("FreeRoaming"))
         {
-            StartCoroutine(PlayNextMusicTrack());
+            if (Input.GetAxisRaw("RadioChange") != 0 && !isSwitchInUse)
+            {
+                isSwitchInUse = true;
+                musicChange((int)Input.GetAxisRaw("RadioChange"));
+                StartCoroutine(PlayNextMusicTrack());
+            }
+            else if (Input.GetAxisRaw("RadioChange") == 0)
+            {
+                isSwitchInUse = false;
+            }
+
+            if (!musicSource.isPlaying)
+            {
+                musicChange(0);
+                StartCoroutine(PlayNextMusicTrack());
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Insert))
@@ -312,10 +329,7 @@ public class AudioManager : MonoBehaviour
     {
         foreach (AudioSource source in FindObjectsOfType<AudioSource>())
         {
-            if (source != musicSource)
-            {
-                source.Stop();
-            }
+            source.Stop();
         }
     }
 
@@ -329,13 +343,12 @@ public class AudioManager : MonoBehaviour
                 yield return null;
             }
 
-            musicSource.Stop();
             StopCoroutine(PlayNextMusicTrack());
+            musicSource.Stop();
             StartCoroutine(PlayNextMusicTrack());
         }
         else
         {
-            int musicIndex = UnityEngine.Random.Range(0, musicArray.Length);
             musicSource.clip = musicArray[musicIndex].audioFile;
             musicSource.volume = 0;
             musicSource.pitch = musicArray[musicIndex].pitch;
@@ -355,6 +368,23 @@ public class AudioManager : MonoBehaviour
         yield return null;
     }
 
+    void musicChange (int input)
+    {
+        if (input == 0)
+        {
+            musicIndex = UnityEngine.Random.Range(0, musicArray.Length);
+        }
+        else if (input == 1)
+        {
+            musicIndex = (musicIndex+1) % musicArray.Length;
+        }
+        else if (input == -1)
+        {
+            if (musicIndex > 0) musicIndex = musicIndex-1;
+            else musicIndex = musicArray.Length - 1;
+        }
+    }
+
     public void PlayPauseMenuChange(bool isOpened)
     {
         if (isOpened)
@@ -371,6 +401,6 @@ public class AudioManager : MonoBehaviour
     void OnLevelWasLoaded(int level)
     {
         StopAllSounds();
-        StartCoroutine(PlayNextMusicTrack());
+        /*StartCoroutine(PlayNextMusicTrack());*/
     }
 }

@@ -13,18 +13,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Gold:
   - 1000
-  - 0
+  - 200
   - 85
   - 180
   _Silver:
   - 10000
-  - 0
+  - 240
   - 70
   - 250
   _Bronze:
   - 100000
-  - 0
+  - 300
   - 45
   - 350
-  _SelectedQuest: 03000000000000000300000001000000
-  _Created: 01000101
+  _SelectedQuest: 03000000010000000300000001000000
+  _Created: 01010101

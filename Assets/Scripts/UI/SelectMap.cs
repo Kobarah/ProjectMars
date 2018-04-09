@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
 
 
 public class SelectMap : MonoBehaviour
@@ -11,15 +13,19 @@ public class SelectMap : MonoBehaviour
     Image mapImage = null;
     Camera mapCamera = null;
     Image mapBackground = null;
-    Image mapBorder = null;
+    //Image mapBorder = null;
     GameObject selectMapObject = null;
     GameObject playerTarget = null;
     GameObject playerIcon = null;
-    
+
     List<Image> imagesIcons = new List<Image>();
     bool iconCreated = false;
     int mapSize = 900;
     public Sprite[] mapsPreviews;
+    //public Animation playerIconAnimation = null;
+    public RuntimeAnimatorController playerIconController;
+    public RuntimeAnimatorController objectiveIconController;
+    public RuntimeAnimatorController finalTargerIconController;
 
 
 
@@ -151,15 +157,20 @@ public class SelectMap : MonoBehaviour
                 if (MiniMap.instance._Icons[i].Icon.sprite != null)
                 {
                     GameObject target = MiniMap.instance._Icons[i].TargetPos;
+                    GameObject iconObject = new GameObject(MiniMap.instance._Icons[i].TargetPos.name);
+                    Image img = iconObject.AddComponent<Image>();
 
-                    string iconName = "Icon";
                     if (target.tag == "Player")
                     {
                         playerTarget = MiniMap.instance._Icons[i].TargetPos;
-                        iconName = "PlayerIcon";
-                    }                  
+                        playerIcon = iconObject;
+                        iconObject.AddComponent<Animator>().runtimeAnimatorController = playerIconController;
+                    }
+                    else if (target.name.Contains("Target"))
+                    {
+                        iconObject.AddComponent<Animator>().runtimeAnimatorController = target.name == "FinalTarget" ? finalTargerIconController : objectiveIconController;
+                    }
 
-                    GameObject iconObject = new GameObject(iconName);
                     iconObject.transform.parent = selectMapObject.transform;
                     iconObject.transform.localScale = new Vector3(1f, 1f, 1f);
                                         
@@ -171,8 +182,7 @@ public class SelectMap : MonoBehaviour
 
                     position += new Vector3(offsetX, offsetZ, 0);
                     iconObject.transform.localPosition = position;
-
-                    Image img = iconObject.AddComponent<Image>();
+                                        
                     img.sprite = MiniMap.instance._Icons[i].Icon.sprite;
                     img.rectTransform.sizeDelta = new Vector2(32, 32);
 
@@ -198,11 +208,6 @@ public class SelectMap : MonoBehaviour
 
                     img.enabled = false;
                     imagesIcons.Add(img);
-
-                    if (playerIcon == null)
-                    {
-                        playerIcon = GameObject.Find("PlayerIcon");
-                    }
                 }
             }
 

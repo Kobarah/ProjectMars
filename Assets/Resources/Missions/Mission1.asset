@@ -13,12 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Gold:
   - 250
-  - 200
+  - 210
   - 240
   - 150
   _Silver:
   - 400
-  - 240
+  - 250
   - 360
   - 225
   _Bronze:
